@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cntnr">
+        <header class="bnr">
+            <h1>📋 Task Dashboard</h1>
+            <p>Manage your tasks, deadlines, and productivity</p>
+        </header>
+
+        <div class="stts-cntnr">
+            <div class="stt-crd total">
+                <div class="stt-icn">📊</div>
+                <div class="stt-inf"><span>TOTAL TASKS</span><h2 id="totalTasks">0</h2></div>
+            </div>
+            <div class="stt-crd completed">
+                <div class="stt-icn">✅</div>
+                <div class="stt-inf"><span>COMPLETED</span><h2 id="completedTasks">0</h2></div>
+            </div>
+            <div class="stt-crd pending">
+                <div class="stt-icn">⏳</div>
+                <div class="stt-inf"><span>PENDING</span><h2 id="pendedTasks">0</h2></div>
+            </div>
+            <div class="stt-crd overdue">
+                <div class="stt-icn">⚠️</div>
+                <div class="stt-inf"><span>OVERDUE</span><h2 id="overduedTasks">0</h2></div>
+            </div>
+            <div class="stt-crd rate">
+                <div class="stt-icn">📈</div>
+                <div class="stt-inf"><span>COMPLETION %</span><h2 id="completionRate">0%</h2></div>
+            </div>
+        </div>
+
+        <div class="sec-bx">
+            <h3>Add New Task</h3>
+            <form id="tsk-frm">
+                <label>Task Title *</label>
+                <input type="text" id="tsk-ttl" placeholder="Enter task title" required>
+                
+                <label>Description</label>
+                <textarea id="tsk-desc" placeholder="Add task description (optional)"></textarea>
+
+                <div class="frm-rw">
+                    <div>
+                        <label>Category *</label>
+                        <select id="tsk-cat" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="Work">Work</option>
+                            <option value="Study">Study</option>
+                            <option value="Personal">Personal</option>
+							<option value="Meeting">Meeting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Priority *</label>
+                        <select id="tsk-prty" required>
+                            <option value="">-- Select Priority --</option>
+                            <option value="High">HIGH</option>
+                            <option value="Medium">MEDIUM</option>
+                            <option value="Low">LOW</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Due Date *</label>
+                        <input type="date" id="tsk-dt" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-add">ADD TASK</button>
+            </form>
+        </div>
+
+        <div class="sec-bx">
+            <h3>Organize Tasks</h3>
+            <div class="fltr-br">
+                <input type="text" id="srch-bar" placeholder="🔍 Search tasks by title...">
+                <select id="fltr-cat">
+				    <option value="All">All Categories</option>
+				    <option value="Work">Work</option>
+				    <option value="Study">Study</option>
+				    <option value="Personal">Personal</option>
+				    <option value="Meeting">Meeting</option>
+                </select>
+				<select id="fltr-stts">
+				    <option value="All">All Status</option>
+				    <option value="Completed">Completed</option>
+				    <option value="Pending">Pending</option>
+					<option value="Overdue">Overdue</option>
+				</select>
+                <select id="fltr-prty">
+				    <option value="All">All Priorities</option>
+				    <option value="High">High</option>
+				    <option value="Medium">Medium</option>
+				    <option value="Low">Low</option>
+                </select>
+                <select id="sort-by">
+                    <option value="newest">Sort By: Newest Created</option>
+                    <option value="date">Sort By: Due Date (Nearest)</option>
+                    <option value="alpha">Sort By: Alphabetical (A-Z)</option>
+                    <option value="priority-level">Sort By: Priority (High to Low)</option>
+                </select>
+                <button id="rst-fltr">RESET FILTER</button>
+            </div>
+        </div>
+
+        <h3>My Tasks</h3>
+        <div id="tsk-grd" class="tsk-grd">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
